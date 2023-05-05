@@ -1,5 +1,8 @@
 import React from "react";
 import '../styles/notas.css'
+import Boton from "./boton";
+
+
 
 function Notas(props) {
   return (
@@ -14,7 +17,11 @@ function Notas(props) {
           {props.contenido}
         </p>
       </div>
-
+      <Boton
+        texto='X'
+        esBotonDeClic={true}
+      // manejarClic={manejarClic}
+      />
     </div>
 
   );

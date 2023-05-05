@@ -2,7 +2,7 @@
     background-color: rgb(229, 145, 240);
     border-radius: 25px;
     font-size: larger;
-    align-self: self-end;
+    align-self:flex-end;
     width: 50px;
     height: 50px;
     box-shadow: inset;
@@ -11,6 +11,6 @@
    border: 0;
 }
 
-button:hover {
+.boton:hover {
     background-color: #d104fa;
 }

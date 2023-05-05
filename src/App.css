@@ -1,38 +1,61 @@
-.App {
+/* .App {
   text-align: center;
+} */
+* {
+  margin: 0;
+  padding: 0;
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html, 
+body {
+  font-size: 18px;
+  background: #134E5E;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #71B280, #134E5E);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #71B280, #134E5E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/* h1 {
+  max-width: 940px;
+  font-size: 2.5em;
+  font-family: Lato, sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 40px 0;
+} */
 
-.App-header {
-  background-color: #282c34;
+.App {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  max-width: 100%;
+  /* display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center; */
 }
 
-.App-link {
-  color: #61dafb;
+.contenedor-principal {
+  min-height: 58vh;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.contenedor-header, .contenedor-footer{
+  background-color:rgba(0, 0, 0, .5);
+  padding: 20px;
+  margin: 0;
+}
+.contenedor-header{
+  font-family:  'Lobster', cursive;;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.contenedor-principal-nueva-nota{
+  min-height: 20vh;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
 }
