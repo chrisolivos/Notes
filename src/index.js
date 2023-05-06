@@ -2,16 +2,33 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+// import reportWebVitals from './reportWebVitals';
+import {BrowserRouter, Route, Routes } from 'react-router-dom'
+import LoginView from './componentes/loginview';
+import DashboardView from './componentes/dashboardview'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <BrowserRouter>
+  <Routes>
+    {/* cada componente route indica la ruta */}
+    <Route path="/" element={<App />} />
+      <Route path="login" element={<LoginView />} />
+      <Route path="dashboard" element={<DashboardView />} />
+      {/* <Route path="dashboard/profile" element={<EditProfile />} />
+      <Route path="signout" element={<SignOut />} /> */}
+      {/* ruta dinamica, porque voy a esperar nombre de usuario */}
+      {/* <Route path="u/:username" element={<Profile />} /> */}
+      {/* despues de loguearnos escogemos nombre de usuario */}
+      {/* <Route path="choose-username" element={<UsernameView />} /> */}
+  </Routes>
+  </BrowserRouter>
+  // <React.StrictMode>
+  //   <App />
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+//reportWebVitals();

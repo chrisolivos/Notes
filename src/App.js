@@ -5,6 +5,7 @@ import { NuevaNota } from './componentes/nuevanota';
 import Loginview from './componentes/loginview'
 
 
+
 // class Note extends Component {
 //   constructor(props){
 //     super(props);
