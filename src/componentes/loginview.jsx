@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { auth } from "../configuracion/firebaseConfig.js"
 import { GoogleAuthProvider, onAuthStateChanged , signInWithPopup} from "firebase/auth";
+import { userExists } from "../configuracion/funciones.js";
+
 
 
 
@@ -23,12 +25,21 @@ export default function LoginView() {
         onAuthStateChanged(auth, verificandoSiHayUsuarioLogueado)
     }, []);
 
-    function verificandoSiHayUsuarioLogueado(user) {
+    async function verificandoSiHayUsuarioLogueado(user) {
         if (user) {
-            setCurrentState(3)
-            console.log(user.displayName);
+            const registrado = await userExists(user.uid);
+                if (registrado){ 
+                    // TODO: ir a notas
+                    setCurrentState(2)
+                    console.log(user.displayName);
+                }else{
+                    setCurrentState(3)
+                }
+
         } else {
+            setCurrentState(4)
             console.log("No hay usuario logueado");
+            // ir a login
         }
     }
 
@@ -69,10 +80,10 @@ if (state===4){
 }
 
 return(
-    // <div>Cargando...</div>
-    <div>
-    <button onClick={loginWithGoogle}>Login con Google</button>
-    </div>
+     <div>Cargando...</div>
+    // <div>
+    // <button onClick={loginWithGoogle}>Login con Google</button>
+    // </div>
 )
    
 }
