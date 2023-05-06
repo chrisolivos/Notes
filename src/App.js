@@ -2,6 +2,7 @@ import './App.css';
 import Notas from './componentes/notas';
 import Boton from './componentes/boton';
 import { NuevaNota } from './componentes/nuevanota';
+import Loginview from './componentes/loginview'
 
 
 // class Note extends Component {
@@ -31,11 +32,14 @@ function App() {
       <div className='contenedor-header'>
         Header
       </div>
-      <div className='contenedor-principal-nueva-nota'>
-        <NuevaNota />
+      <div>
+        <Loginview />
       </div>
+      {/* <div className='contenedor-principal-nueva-nota'>
+        <NuevaNota />
+      </div> */}
 
-      <div className="contenedor-principal">
+      {/* <div className="contenedor-principal">
 
 
         <Notas
@@ -54,7 +58,7 @@ function App() {
           // esBotonDeClic={true}
           // opcionClic={opcionClic(1)}
         />
-      </div>
+      </div> */}
       <div className='contenedor-footer'>
         Footer
       </div>
