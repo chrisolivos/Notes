@@ -1,8 +1,8 @@
 import './App.css';
-import Notas from './componentes/notas';
+import Notas from './componentes/notesview';
 import Boton from './componentes/boton';
 import { NuevaNota } from './componentes/nuevanota';
-import Loginview from './componentes/loginview'
+import LoginVista from './componentes/loginview'
 
 
 
@@ -34,7 +34,7 @@ function App() {
         Header
       </div>
       <div>
-        <Loginview />
+        <LoginVista />
       </div>
       {/* <div className='contenedor-principal-nueva-nota'>
         <NuevaNota />

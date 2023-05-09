@@ -6,6 +6,11 @@ import App from './App';
 import {BrowserRouter, Route, Routes } from 'react-router-dom'
 import LoginView from './componentes/loginview';
 import DashboardView from './componentes/dashboardview'
+import Signoutview from './componentes/signoutview';
+import Notesview from './componentes/notesview'
+//import RegistrarUsuario from './componentes/registerview';
+import  NuevaNota  from './componentes/nuevanota';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,8 +20,11 @@ root.render(
     <Route path="/" element={<App />} />
       <Route path="login" element={<LoginView />} />
       <Route path="dashboard" element={<DashboardView />} />
-      {/* <Route path="dashboard/profile" element={<EditProfile />} />
-      <Route path="signout" element={<SignOut />} /> */}
+      {/* <Route path="dashboard/profile" element={<EditProfile />} */}
+      <Route path="signout" element={<Signoutview />} />
+      <Route path="notes" element={<Notesview />} />
+      <Route path="newnotes" element={<NuevaNota />} />
+      {/* <Route path="register" element={<RegistrarUsuario />} /> */}
       {/* ruta dinamica, porque voy a esperar nombre de usuario */}
       {/* <Route path="u/:username" element={<Profile />} /> */}
       {/* despues de loguearnos escogemos nombre de usuario */}

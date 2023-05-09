@@ -1,12 +1,16 @@
 import React from "react";
 import '../styles/notas.css'
 import Boton from "./boton";
+import { cerrarSesion } from "../configuracion/funciones";
 
 
 
 function Notas(props) {
   return (
+
+
     <div className="contenedor-principal-notas">
+      <button onClick={cerrarSesion}>Logout</button>
       <div className="contenedor-notas">
         <h3 className="estilo-titulo-notas">
           {/* Titulo Notas */}

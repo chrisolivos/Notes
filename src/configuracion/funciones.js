@@ -13,11 +13,11 @@ import {
   } from "firebase/firestore";
 
 
-export async function logout() {
+export async function cerrarSesion() {
     await auth.signOut();
   }
 
-  export async function userExists(uid) {
+  export async function usuarioExiste(uid) {
     //donde vamos a buscar la referencia
     //Referencia del doc = docRef
     //ruta de la referencia doc(db, coleccion, id del usuario)
@@ -25,6 +25,30 @@ export async function logout() {
     const docRef = doc(db, "users", uid);
     //llamammos a la refencia
     const docSnap = await getDoc(docRef);
-  
+  //3 metodos: data (trae los datos) , exist (true o false) y get (trae  doc tal cual)
     return docSnap.exists();
   }
+
+  //registrar usuario
+  export async function registrarNuevoUsuario(user){
+    try {
+      //definir coleccion primero
+      const coleccionRef=collection(db, "users")
+      //const docRef= doc(db, "users", user.uid)
+      const docRef= doc(coleccionRef,user.uid)
+      await setDoc(docRef,user)
+    } catch (error) {
+      
+    }
+  }
+export async function actualizarUsuario(user){
+  try {
+    const coleccionRef=collection(db, "users")
+    const docRef= doc(coleccionRef,user.uid)
+    await setDoc(docRef,user)
+  } catch (error) {
+    
+  }
+}
+
+  

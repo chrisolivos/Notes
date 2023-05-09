@@ -1,50 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { auth } from "../configuracion/firebaseConfig.js"
-import { GoogleAuthProvider, onAuthStateChanged , signInWithPopup} from "firebase/auth";
-import { userExists } from "../configuracion/funciones.js";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+//import { usuarioExiste } from "../configuracion/funciones.js";
+import Signoutview from "./signoutview.jsx";
+import { useNavigate } from 'react-router-dom'
+import Autenticacion from "./AuthProvider.jsx";
 
 
 
 
 
-export default function LoginView() {
+export default function LoginVista() {
+    const navegar = useNavigate();
     const [currentUser, setCurrentUser] = useState(null);
-    const [state, setCurrentState] = useState(0);
-    /*
-    State:
-    0 inicializado
-    1 cargando
-    2 logueado y registrado
-    3 logueado sin registro
-    4 no hay usuario logueado
-    */
+    const [estado, setEstado] = useState(0);
 
-    //verificando usuario logeado
-    useEffect(() => {
-        setCurrentState(1)
-        onAuthStateChanged(auth, verificandoSiHayUsuarioLogueado)
-    }, []);
-
-    async function verificandoSiHayUsuarioLogueado(user) {
-        if (user) {
-            const registrado = await userExists(user.uid);
-                if (registrado){ 
-                    // TODO: ir a notas
-                    setCurrentState(2)
-                    console.log(user.displayName);
-                }else{
-                    setCurrentState(3)
-                }
-
-        } else {
-            setCurrentState(4)
-            console.log("No hay usuario logueado");
-            // ir a login
-        }
-    }
 
     //logeando con google
-    async function loginWithGoogle() {
+    async function loginConGoogle() {
         const googleProvider = new GoogleAuthProvider();
         await signInWithGoogle(googleProvider);
 
@@ -59,31 +32,57 @@ export default function LoginView() {
 
     }
 
-//segun el state realizara algo
-if (state===2){
-    return (
-    <div>logueado y registrado</div>
-    )
-}
+    function funcionUsuarioLogueado(user) {
+        // setCurrentUser(user)
+        navegar('/dashboard')
+    }
 
-if (state===3){
-    return (
-    <div>logueado sin registro</div>
-    )
-}
-if (state===4){
-    return (
-        <div>
-        <button onClick={loginWithGoogle}>Login con Google</button>
-        </div>
-    );
-}
+    function funcionUsuarioNoRegistardo(user) {
+        setCurrentUser(user)
+      //  navegar('/register')
+        setEstado(3)
+    }
 
-return(
-     <div>Cargando...</div>
-    // <div>
-    // <button onClick={loginWithGoogle}>Login con Google</button>
-    // </div>
-)
-   
+    function funcionUsuarioNoLogueado() {
+    //  navegar('/')
+        setEstado(4)
+    }
+
+
+
+    //segun el estadoo realizara algo
+    // if (estado===2){
+    //     return (
+    //     <div>logueado y registrado
+    //         <button onClick={cerrarSesion}>Logout</button>
+    //         </div>
+    //         //TODO  notas
+    //   // navegar('/notes')
+
+    //     )
+    // }
+    // // navegar('/notes')
+    // if (estado === 3) {
+    //     //TODO: registrarse
+    //     return (
+    //         // navegar('/notes')
+    //         <div>logueado sin registro, 
+    //             <button onClick={Signoutview}>Logout</button>
+    //         </div>
+    //     )
+    // }
+    if (estado === 4) {
+        return (
+            <div>
+                <button onClick={loginConGoogle}>Login con Google</button>
+            </div>
+        );
+    }
+    return <Autenticacion
+        usuarioLogueado={funcionUsuarioLogueado}
+        usuarioNoLogueado={funcionUsuarioNoLogueado}
+        usuarioNoRegistrado={funcionUsuarioNoRegistardo}
+    />
+
+
 }
