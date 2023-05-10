@@ -10,6 +10,7 @@ import Signoutview from './componentes/signoutview';
 import Notesview from './componentes/notesview'
 //import RegistrarUsuario from './componentes/registerview';
 import  NuevaNota  from './componentes/nuevanota';
+import Notas from './componentes/notesview';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -23,7 +24,8 @@ root.render(
       {/* <Route path="dashboard/profile" element={<EditProfile />} */}
       <Route path="signout" element={<Signoutview />} />
       <Route path="notes" element={<Notesview />} />
-      <Route path="newnotes" element={<NuevaNota />} />
+      <Route path="newnotes/:uid" element={<NuevaNota />} />
+      <Route path="notesview" element={<Notas />} />
       {/* <Route path="register" element={<RegistrarUsuario />} /> */}
       {/* ruta dinamica, porque voy a esperar nombre de usuario */}
       {/* <Route path="u/:username" element={<Profile />} /> */}

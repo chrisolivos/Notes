@@ -1,0 +1,49 @@
+.contenedor-login{
+    display: grid;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    grid-template-rows: 40px 40px 40px;
+    grid-template-columns: 250px 300px;
+}
+
+.contenedor-boton-login{
+    color: white;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    border-radius: 50px;
+    background: linear-gradient(0deg, black, #9E9E9E);
+    text-shadow: 1px 1px 10px yellow;
+    box-shadow: 5px 5px 2px #607D8B;
+  }
+  
+  .animado{
+    top: 20px;
+    animation: mi-animacion 2s infinite reverse;
+  }
+  
+  @keyframes mi-animacion{
+    from {color: yellow;}
+    to {color:black;}
+  }
+
+  .input-text{
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    background: #323131;
+    border: none;
+    color: #c7c7c7;
+    border-radius: 4px;
+    outline: none;
+    transition: all 0.2s ease;
+    margin: 2px;
+  }
+  .p-text{
+    display: block;
+    font-size: 16px bold;
+    margin-bottom: 8px;
+    color: #fffdfd;
+    
+  }

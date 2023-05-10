@@ -5,7 +5,7 @@ import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import Signoutview from "./signoutview.jsx";
 import { useNavigate } from 'react-router-dom'
 import Autenticacion from "./AuthProvider.jsx";
-
+import '../styles/loginview.css'
 
 
 
@@ -34,17 +34,18 @@ export default function LoginVista() {
 
     function funcionUsuarioLogueado(user) {
         // setCurrentUser(user)
-        navegar('/dashboard')
+      //  navegar('/dashboard')
+        navegar('/newnotes/'+(user.uid))
     }
 
     function funcionUsuarioNoRegistardo(user) {
         setCurrentUser(user)
-      //  navegar('/register')
+        //  navegar('/register')
         setEstado(3)
     }
 
     function funcionUsuarioNoLogueado() {
-    //  navegar('/')
+        //  navegar('/')
         setEstado(4)
     }
 
@@ -73,9 +74,19 @@ export default function LoginVista() {
     // }
     if (estado === 4) {
         return (
-            <div>
-                <button onClick={loginConGoogle}>Login con Google</button>
-            </div>
+            <>
+                <div className="contenedor-login">
+
+                    <p className="p-text">Ingrese correo:</p>
+                    <input  className="input-text" type="text" name="correo"></input>
+                    <p className="p-text">Ingrese contraseña:</p>
+                    <input  className="input-text" type="password" name="clave"></input>
+
+                    <div >
+                        <button className="contenedor-boton-login animado" onClick={loginConGoogle}>Login con Google</button>
+                    </div>
+                </div>
+            </>
         );
     }
     return <Autenticacion
@@ -86,3 +97,6 @@ export default function LoginVista() {
 
 
 }
+
+
+

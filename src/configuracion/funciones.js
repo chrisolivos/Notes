@@ -41,6 +41,8 @@ export async function cerrarSesion() {
       
     }
   }
+
+  //actualizar usuario
 export async function actualizarUsuario(user){
   try {
     const coleccionRef=collection(db, "users")
@@ -51,4 +53,30 @@ export async function actualizarUsuario(user){
   }
 }
 
+//agregar nueva nota
+export async function nuevaNota(user){
+  const coleccionRef=collection(db, "notes")
+
+  const docRef= doc(coleccionRef)
+  await setDoc(docRef,user)
+  try {
+    
+  } catch (error) {
+    
+  }
+}
+
+//editar nota
+export async function editarNota(user){
+  const coleccionRef=collection(db, "notes")
+  const docRef= doc(coleccionRef,user.uid)
+  await setDoc(docRef,user)
+  try {
+    
+  } catch (error) {
+    
+  }
+
+  //eliminar nota
+}
   
