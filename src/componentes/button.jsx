@@ -1,18 +1,18 @@
 import React from "react"; 
 import '../styles/boton.css';
 
+//const manejarClic()=>()
 
 
-
-function Boton({ texto, opcionClic}) {
+function Boton({ texto, manejarClic}) {
   //opcion:  editar, eliminar
     //, esBotonDeClic, manejarClic 
     return (
-      //operador ternario (opciones)
-    //   <button className={esBotonDeClic ? "boton-clic" : "boton-reiniciar"} onClick={manejarClic}>
-    //     {texto}
-    //   </button>
-    <button className="boton" onClick={opcionClic}>
+      //operador ternario (opciones del css segun sea el boton)
+      // <button className={esBotonDeClic ? "boton-editar" : "boton-eliminar"} onClick={manejarClic}>
+      //   {texto}
+      // </button>
+    <button className="boton" onClick={manejarClic}>
     {texto}
   </button>
     )

@@ -27,12 +27,8 @@ export default function NuevaNota(user) {
         setValores({ ...valores, [name]: value })
 
     }
-
-
-
     //funcion que capture los datos
     const formOnSubmit = e => {
-
         e.preventDefault();
 
         crearNota()
@@ -46,7 +42,8 @@ export default function NuevaNota(user) {
 
             });
         }
-
+      //  setValores(valoresIniciales)
+      e.target.reset()
         console.log(valores)
   
     }
@@ -62,10 +59,10 @@ export default function NuevaNota(user) {
 
     return (
         <>
-            <div>
-            <button onClick={Signoutview}>Logout</button>
+            <div >
+            <button className="contenedor-boton-logout animado" onClick={Signoutview}>Logout</button>
             </div>
-            <form className="form-nueva-nota" onSubmit={formOnSubmit}>
+            <form id="frmNuevaNota" className="form-nueva-nota" onSubmit={formOnSubmit}>
                 <div className="contenedor-nueva-nota">
                     <label>Ingresa un titulo</label>
                     <input name="titulo" type="text" placeholder="Escribe el titulo" onChange={cambiosTextoInput}></input>

@@ -5,7 +5,22 @@ import { cerrarSesion } from "../configuracion/funciones";
 import BotonAgregarNota from './buttonAddNote'
 
 
+
+
+
 function Notas({id,titulo,contenido}) {
+
+  const editarNotas = () => {
+    //  setNumClics(numClics + 1);
+    console.log("editar")
+    }
+    
+    const eliminarNotas = () => {
+     // setNumClics(0);
+     console.log("eliminar")
+    }
+
+
   return (
 
     <>
@@ -22,9 +37,17 @@ function Notas({id,titulo,contenido}) {
           </p>
         </div>
         <Boton
+          texto='E'
+        //  esBotonDeClic={true}
+          manejarClic={editarNotas} />
+        <Boton
           texto='X'
-          esBotonDeClic={true} />
+         // esBotonDeClic={false}
+          manejarClic={eliminarNotas} />
+
       </div>
+
+      
       {/* <div className="contenido-boton-agregar-nota">
       <BotonAgregarNota
       texto='+'
