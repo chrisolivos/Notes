@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { auth } from "../configuracion/firebaseConfig.js"
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 //import { usuarioExiste } from "../configuracion/funciones.js";
-import Signoutview from "./signoutview.jsx";
+//import Signoutview from "./signoutview.jsx";
 import { useNavigate } from 'react-router-dom'
 import Autenticacion from "./AuthProvider.jsx";
 import '../styles/loginview.css'
+
 
 
 
@@ -14,6 +15,7 @@ export default function LoginVista() {
     const navegar = useNavigate();
     const [currentUser, setCurrentUser] = useState(null);
     const [estado, setEstado] = useState(0);
+   
 
 
     //logeando con google
@@ -32,10 +34,14 @@ export default function LoginVista() {
 
     }
 
-    function funcionUsuarioLogueado(user) {
+    async function funcionUsuarioLogueado(user) {
         // setCurrentUser(user)
-      //  navegar('/dashboard')
-        navegar('/newnotes/'+(user.uid))
+     
+    //   const todasLasNotas = await mostrarNotas(user.id);
+    //   setNotas([...todasLasNotas])
+     // navegar('/mostrarNotas/'+(user.uid))
+     navegar('/dashboard/'+(user.uid))
+       // navegar('/newnotes/'+(user.uid))
     }
 
     function funcionUsuarioNoRegistardo(user) {
@@ -75,6 +81,7 @@ export default function LoginVista() {
     if (estado === 4) {
         return (
             <>
+            
                 <div className="contenedor-login">
 
                     <p className="p-text">Ingrese correo:</p>

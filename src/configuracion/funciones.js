@@ -2,6 +2,7 @@ import { auth, db } from "./firebaseConfig";
 import {
     getFirestore,
     collection,
+    onSnapshot,
     addDoc,
     getDocs,
     doc,
@@ -10,6 +11,7 @@ import {
     where,
     setDoc,
     deleteDoc,
+    orderBy
   } from "firebase/firestore";
 
 
@@ -54,13 +56,12 @@ export async function actualizarUsuario(user){
 }
 
 //agregar nueva nota
-export async function nuevaNota(user){
-  const coleccionRef=collection(db, "notes")
-
-  const docRef= doc(coleccionRef)
-  await setDoc(docRef,user)
+export async function nuevaNota(userUid){
   try {
-    
+    const coleccionRef=collection(db, "notes")
+    const docRef= doc(coleccionRef)
+   await setDoc(docRef,userUid)
+ // await addDoc(coleccionRef,userUid);
   } catch (error) {
     
   }
@@ -68,15 +69,52 @@ export async function nuevaNota(user){
 
 //editar nota
 export async function editarNota(user){
-  const coleccionRef=collection(db, "notes")
-  const docRef= doc(coleccionRef,user.uid)
-  await setDoc(docRef,user)
+
   try {
-    
+    const coleccionRef=collection(db, "notes")
+    const docRef= doc(coleccionRef,user.uid)
+    await setDoc(docRef,user)
   } catch (error) {
     
   }
 
   //eliminar nota
 }
-  
+
+export async function mostrarNotas(userUid){
+
+  // const collectionRef = collection(db, value)
+  // const q = query(collectionRef, orderBy("date", "desc"));
+  // const unsubscribe = onSnapshot(q, (querySnapshot) => {
+  //   setNoteList(querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id, date: doc.data().date?.toDate().getTime() })))
+//  console.log('funcion mostrarNotas',userUid)
+try {
+  const arregloNotas = [];
+  const q = query(collection(db, "notes"), where("userUid", "==", userUid), orderBy("fecha", "desc"));
+   const querySnapshot = await onSnapshot(q);
+
+  // querySnapshot.forEach((doc) => {
+  //   // doc.data() is never undefined for query doc snapshots
+  //   const arregloNota = {id:doc.id,...doc.data() };
+    
+  //  // arregloNota.id = doc.id;
+  //   //console.log(doc.id, " => ", doc.data());
+  //   //console.log(arregloNota);
+  //   arregloNotas.push(arregloNota);
+  // });
+ // console.log('arregloNotas',arregloNotas)
+  return ;
+
+} catch (error) {
+  console.log('error',error)
+}
+}
+
+// export async function mostrarNotas2(userUid){
+//   const collectionRef = collection(db, "notes")
+//   const q = query(collectionRef, orderBy("date", "desc"));
+//   const unsubscribe = onSnapshot(q, (querySnapshot) => {
+//     setNoteList(querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id, date: doc.data().date?.toDate().getTime() })))
+
+// })
+// }

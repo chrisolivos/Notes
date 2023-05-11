@@ -5,7 +5,8 @@ import { cerrarSesion } from "../configuracion/funciones";
 import BotonAgregarNota from './buttonAddNote'
 
 
-function Notas({id,titulo,contenido}) {
+function ItemDetails({datos}) {
+ //   console.log(datos)
   return (
 
     <>
@@ -14,11 +15,11 @@ function Notas({id,titulo,contenido}) {
         <div className="contenedor-notas">
           <h3 className="estilo-titulo-notas">
             {/* Titulo Notas */}
-            {titulo}
+            {datos}
           </h3>
           <p className="estilo-contenido-notas">
             {/* Contenido notas */}
-            {contenido}
+            {/* {data} */}
           </p>
         </div>
         <Boton
@@ -35,4 +36,4 @@ function Notas({id,titulo,contenido}) {
   );
 }
 
-export default Notas;
+export default ItemDetails;

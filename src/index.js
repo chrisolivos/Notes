@@ -11,6 +11,7 @@ import Notesview from './componentes/notesview'
 //import RegistrarUsuario from './componentes/registerview';
 import  NuevaNota  from './componentes/nuevanota';
 import Notas from './componentes/notesview';
+import { MostrarData } from './componentes/mostrandoNotasPrueba';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,10 +21,12 @@ root.render(
     {/* cada componente route indica la ruta */}
     <Route path="/" element={<App />} />
       <Route path="login" element={<LoginView />} />
-      <Route path="dashboard" element={<DashboardView />} />
+      <Route path="dashboard/:uid" element={<DashboardView />} />
       {/* <Route path="dashboard/profile" element={<EditProfile />} */}
       <Route path="signout" element={<Signoutview />} />
-      <Route path="notes" element={<Notesview />} />
+    
+      <Route path="notes/:uid" element={<Notesview />} />
+      <Route path="mostrarNotas/:uid" element={<MostrarData />} />
       <Route path="newnotes/:uid" element={<NuevaNota />} />
       <Route path="notesview" element={<Notas />} />
       {/* <Route path="register" element={<RegistrarUsuario />} /> */}
