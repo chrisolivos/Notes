@@ -6,12 +6,11 @@ import App from './App';
 import {BrowserRouter, Route, Routes } from 'react-router-dom'
 import LoginView from './componentes/loginview';
 import DashboardView from './componentes/dashboardview'
-import Signoutview from './componentes/signoutview';
 import Notesview from './componentes/notesview'
 //import RegistrarUsuario from './componentes/registerview';
 import  NuevaNota  from './componentes/nuevanota';
 import Notas from './componentes/notesview';
-import { MostrarData } from './componentes/mostrandoNotasPrueba';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -23,10 +22,10 @@ root.render(
       <Route path="login" element={<LoginView />} />
       <Route path="dashboard/:uid" element={<DashboardView />} />
       {/* <Route path="dashboard/profile" element={<EditProfile />} */}
-      <Route path="signout" element={<Signoutview />} />
+
     
       <Route path="notes/:uid" element={<Notesview />} />
-      <Route path="mostrarNotas/:uid" element={<MostrarData />} />
+
       <Route path="newnotes/:uid" element={<NuevaNota />} />
       <Route path="notesview" element={<Notas />} />
       {/* <Route path="register" element={<RegistrarUsuario />} /> */}

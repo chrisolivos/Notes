@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import '../styles/nuevanota.css'
-import { nuevaNota } from "../configuracion/funciones";
+import { cerrarSesion, nuevaNota } from "../configuracion/funciones";
 import { useParams } from "react-router-dom";
-import Signoutview from "./signoutview";
+import {useNavigate } from 'react-router-dom'
 
 
 
@@ -25,31 +25,16 @@ export default function NuevaNota(user) {
         const { name, value } = e.target;
         //...valores: que mantenga los valores que tiene
         setValores({ ...valores, [name]: value })
-        // setValores({valores,[name]:value})
-        // console.log(valores)
-        //  console.log(name, value)
+
     }
 
-    // const crearNuevaNota = {await registrarNuevoNota({
-    //     uid: user.uid,
-    //     displayName: user.displayName,
-    //     profilePicture: user.photoURL,
-    //     email: user.email
 
-    // });
-    // }
 
     //funcion que capture los datos
     const formOnSubmit = e => {
 
         e.preventDefault();
-        //console.log(e)
-        // setValores={
-        //     uid: user.uid,
-        //     titulo: e.titulo,
-        //     contenido: e.contenido
 
-        // }
         crearNota()
         async function crearNota() {
             await nuevaNota({
@@ -63,8 +48,17 @@ export default function NuevaNota(user) {
         }
 
         console.log(valores)
-
+  
     }
+    const navegar = useNavigate();
+    async function Signoutview() {
+        
+          await  cerrarSesion()
+         navegar('/')
+
+        
+    }
+
 
     return (
         <>
