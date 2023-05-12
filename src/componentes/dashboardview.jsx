@@ -33,28 +33,14 @@ export default function DashboardView() {
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       setNotas(querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id, date: doc.data().fecha?.toDate().getTime() })))
 
-
-      //   snapshot.docs.forEach(nota=>{
-      //     arrayNotas.push(...nota)
-      //   })
     });
 
     return unsubscribe;
   }, [])
-  //  const [nota, setNota] = useState({});
-  console.log(notas)
 
-  // const todasLasNotas = mostrarNotas(idUsusario.uid);
-  //  mostrarNotas(idUsusario.uid).then((data)=>{
-  //   setNotas([...data.data()])
-  //  }
+  // console.log(notas)
 
-  // )
 
-  //  setNotas([...mostrarNotas(idUsusario.uid)])
-  // console.log('notas view', notas)
-  //}
-  //)
   if (notas.length > 0) {
     return (
       <>
@@ -76,11 +62,11 @@ export default function DashboardView() {
         </div>
       </>
     )
-  }else{
+  } else {
     return (
-      
-        <NuevaNota />
-        )
+
+      <NuevaNota />
+    )
   }
 
 }
