@@ -1,5 +1,15 @@
 .contenedor-principal-notas {
-  width: 270px;
+  width: 260px;
+  height: 280px;
+  display: grid;
+  /* grid-template-rows:80px 80px; */
+  margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../img/post-it-amarillo.png");
+  background-size:cover;
+
+  /* width: 270px;
   height: 270px;
   margin: 10px 10px 50px;
   display: flex;
@@ -7,7 +17,12 @@
   justify-content: center;
   background-color: #686666; 
   box-shadow: 0 3px 13px 1px rgb(0 0 0 / 9%);
-  border-radius: 5px;
+  border-radius: 5px; */
+}
+.contenedor-notas{
+align-content: center;
+margin-top: 50px;
+padding: 0;
 }
 
 /* .imagen-testimonio {
@@ -17,23 +32,15 @@
 
 .estilo-contenido-notas {
   text-align: center;
-  padding: 40px;
   font-family: Lato, sans-serif;
   font-weight: 400;
   line-height: 1.5rem;
+  text-align: justify;
 }
 
-/* .nombre-testimonio {
-  font-size: 1.3rem;
-} */
+.contenedor-botones{
+  display: flex;
+  float: right;
 
-/* .cargo-testimonio {
-  font-size: 1.3rem;
-  margin-top: 15px;
-  padding-bottom: 30px;
-} */
+}
 
-/* .texto-testimonio {
-  font-size: 1.1rem;
-  text-align: justify;
-} */

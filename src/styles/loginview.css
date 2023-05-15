@@ -1,4 +1,4 @@
-.contenedor-login{
+/* .contenedor-login{
     display: grid;
     justify-content: center;
     width: 100%;
@@ -18,15 +18,6 @@
     box-shadow: 5px 5px 2px #607D8B;
   }
   
-  .animado{
-    top: 20px;
-    animation: mi-animacion 2s infinite reverse;
-  }
-  
-  @keyframes mi-animacion{
-    from {color: yellow;}
-    to {color:black;}
-  }
 
   .input-text{
     padding: 10px;
@@ -46,4 +37,75 @@
     margin-bottom: 8px;
     color: #fffdfd;
     
+  } */
+
+
+
+.contenedor-form-login {
+  display: flex;
+  /* grid-template-columns: 350px 350px;*/
+  padding: 10px;
+  width: 470px;
+  height: 450px;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background-image: url("../img/post-it.png");
+  background-size: contain;
+}
+
+
+
+.imagen-portada {
+  border-radius: 10%;
+  width: 400px;
+  height: 400px;
+  box-shadow: -15px 20px 10px rgb(0 0 0 / 40%);
+
+
+}
+
+.texto-login {
+  font-family: 'Kalam', cursive;
+  font-size: 18px;
+}
+
+.boton-login {
+  margin: 10px 10px 10px;
+  /* background-color: rgba(255, 0, 0, 0.342); */
+}
+
+/* .animado{
+    top: 20px;
+    animation: mi-animacion 2s infinite reverse;
   }
+  
+  @keyframes mi-animacion{
+    from {color: yellow;}
+    to {color:black;}
+  } */
+
+.form-estilo {
+  padding-left: 40px;
+  transform: rotate(-5deg);
+}
+
+.boton-google {
+  margin: 20px;
+  width: 215px;
+  height: 40px;
+
+  .verde {
+    filter: hue-rotate(100deg);
+  }
+
+
+
+}
+
+.boton-google-imagen {
+  width: 200px;
+  height: 30px;
+
+
+}

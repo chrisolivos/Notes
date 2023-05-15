@@ -1,8 +1,6 @@
 import './App.css';
-import Notas from './componentes/notesview';
-import Boton from './componentes/button';
-import { NuevaNota } from './componentes/nuevanota';
 import LoginVista from './componentes/loginview'
+
 
 
 
@@ -30,40 +28,18 @@ import LoginVista from './componentes/loginview'
 function App() {
   return (
     <div className="App">
-      <div className='contenedor-header'>
+      {/* <div className='contenedor-header'>
         Header
-      </div>
-      <div>
+      </div> */}
+      <div className='contenedor-principal'>
         <LoginVista /> 
+        {/* <BasicExample /> */}
 
       </div>
-      {/* <div className='contenedor-principal-nueva-nota'>
-        <NuevaNota />
-      </div> */}
 
-      {/* <div className="contenedor-principal">
-
-
-        <Notas
-          titulo="Primera Nota"
-          contenido="contenido 1"
-        />
-        <Notas
-          titulo="Segunda Nota"
-          contenido="contenido 2"
-        />
-
-      </div>
-      <div className='boton-agregar-nota'>
-        <Boton
-          texto='+'
-          // esBotonDeClic={true}
-          // opcionClic={opcionClic(1)}
-        />
-      </div> */}
-      <div className='contenedor-footer'>
+      {/* <div className='contenedor-footer'>
         Footer
-      </div>
+      </div> */}
     </div>
 
   );

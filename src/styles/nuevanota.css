@@ -1,51 +1,86 @@
-.input-nota{
-    padding: 15px;
-}
+/* .input-nota {
+  padding: 15px;
+} */
 
 /* .Nuevanota input[type="text"]{
 	padding: 20px;
 } */
 
 .boton-agregar {
-	padding: 10px;
-	color:#fff;
-	background: #019875;
-	border: none;
-    margin: 1px;
+  padding: 5px;
+  color: #030303;
+  background: yellow;
+  border: none;
+  margin: 1px;
 }
 
 .boton-agregar:hover {
-	background-color: #02bab5;
-	color:#fff;
-}
-.contenedor-nueva-nota{
-	display: grid;
-	justify-content: center;
-
-	width: 100%;
-	height: 100%;
-	grid-template-rows: 40px 40px 40px;
-	grid-template-columns: 200px 300px;
-}
-
-#root{
-	width: 100%;
-	height: 100%;
+  background-color: #ffb26a;
+  color: #fff;
 }
 
 
-.contenedor-boton-logout{
-    color: white;
-    padding: 10px;
-    width: 150px;
-    text-align: center;
-    border-radius: 50px;
-    background: linear-gradient(0deg, black, #9E9E9E);
-    text-shadow: 1px 1px 10px yellow;
-    box-shadow: 5px 5px 2px #607D8B;
-  }
-  
-  .animado{
-    top: 20px;
-    animation: mi-animacion 2s infinite reverse;
-  }
+.contenedor-nueva-nota {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  grid-template-rows: 40px 40px 40px;
+  grid-template-columns: 200px 300px;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
+.contenedor-form-nueva-nota {
+  display: flex;
+  /* grid-template-columns: 350px 350px;*/
+  width: 345px;
+  height: 380px;
+
+  align-items: center;
+  justify-content: center;
+  background-image: url("../img/post-it-amarillo.png");
+  background-size: contain;
+}
+
+.form-estilo-nueva-nota {
+  padding-top: 20px;
+
+  width: 80%;
+  height: 80%;
+  transform: rotate(-2deg);
+}
+
+/* .contenedor-boton-logout {
+  color: white;
+  padding: 10px;
+  width: 150px;
+  text-align: center;
+  border-radius: 50px;
+  background: linear-gradient(0deg, black, #9E9E9E);
+  text-shadow: 1px 1px 10px yellow;
+  box-shadow: 5px 5px 2px #607D8B;
+}
+
+.animado {
+  top: 20px;
+  animation: mi-animacion 2s infinite reverse;
+} */
+.contenedor-principal {
+  padding-top: 10px;
+  width: 100%;
+}
+
+.container-boton-logout {
+  width: 100%;
+  float: right;
+  margin: 10px;
+
+
+}

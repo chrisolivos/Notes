@@ -7,13 +7,17 @@
   
 }
 
-html, 
+/*html, */
 body {
-  font-size: 18px;
-  background: #134E5E;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #71B280, #134E5E);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #71B280, #134E5E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
+  margin: 0;
+  /* font-size: 18px;
+/*background: #4AC29A;  /* fallback for old browsers */
+/*background: -webkit-linear-gradient(to right, #BDFFF3, #4AC29A);  /* Chrome 10-25, Safari 5.1-6 
+background: linear-gradient(to right, #BDFFF3, #4AC29A); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ 
+*/
+/* background-image: url("./img/background.jpg") ; */
+background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url("./img/background.jpg");
+background-size: contain;
 }
 
 /* h1 {
@@ -33,22 +37,23 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center; */
+ 
 }
 
-/* .contenedor-principal {
-  min-height: 58vh;
-  max-width: 100%;
+ .contenedor-principal {
+  /* min-height: 58vh;
+  max-width: 100%; */
   display: flex;
-  flex-wrap: wrap;
+
   align-items: center;
   justify-content: center;
-} */
+} 
 .contenedor-header, .contenedor-footer{
   background-color:rgba(0, 0, 0, .5);
  /* padding: 20px;*/
   margin: 0;
   font-family:  'Lobster', cursive;
- height: 20%;
+ 
 }
 
 .contenedor-header{
