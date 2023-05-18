@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import '../styles/nuevanota.css'
-import { cerrarSesion, nuevaNota } from "../configuracion/funciones";
-import { useParams } from "react-router-dom";
-import { useNavigate } from 'react-router-dom'
+import { nuevaNota } from "../configuracion/funciones";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
@@ -11,19 +9,21 @@ const valoresIniciales = {
     userUid: '',
     titulo: '',
     contenido: '',
-    fecha: ''
+    fecha: '',
+    estado:''
 };
 
 export default function NuevaNota(user) {
     //al useState vamos a darlos los valores iniciales
     const [valores, setValores] = useState(valoresIniciales);
-    const idUsusario = useParams();
+    // const idUsusario = useParams();
+    const idUsusario = sessionStorage.getItem('userIdLogin')
     //console.log(idUsusario)
 
     //funcion que toma los valores del input 
     const cambiosTextoInput = e => {
         const { name, value } = e.target;
-        console.log(e.target.value)
+    //    console.log(e.target.value)
         //...valores: que mantenga los valores que tiene
         setValores({ ...valores, [name]: value })
 
@@ -35,34 +35,25 @@ export default function NuevaNota(user) {
         crearNota()
         async function crearNota() {
             await nuevaNota({
-                userUid: idUsusario.uid,
+                userUid: idUsusario,
                 // uid:'eotjnRgEfKhV480ek5QBkRmtz292',
                 titulo: valores.titulo,
                 contenido: valores.contenido,
-                fecha: new Date()
+                fecha: new Date(),
+                estado: 'activo'
 
             });
         }
         //  setValores(valoresIniciales)
         e.target.reset()
-        console.log(valores)
-
-    }
-    const navegar = useNavigate();
-    async function Signoutview() {
-
-        await cerrarSesion()
-        navegar('/')
-
+     //   console.log(valores)
 
     }
 
 
     return (
         <>
-            <div className="container-boton-logout" >
-                <Button variant="danger"  onClick={Signoutview}>Logout</Button>
-            </div>
+
             <div className="contenedor-principal">
             <div className='contenedor-form-nueva-nota'>
 

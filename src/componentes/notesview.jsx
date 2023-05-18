@@ -1,25 +1,31 @@
 import React from "react";
 import '../styles/notas.css'
-import Boton from "./button";
-import { cerrarSesion } from "../configuracion/funciones";
-import BotonAgregarNota from './buttonAddNote'
+import ModalEditNote from './modalEditNote'
+import ModalDeleteNote from './modalDeleteNote'
 
 
 
+function Notas({ idNota, titulo, contenido }) {
+ // const [estadoModal, setEstadoModal] = useState(false);
+//console.log('id',id)
+  // const editarNotas = () => {
 
+  //   setEstadoModal(!estadoModal);
+  //    console.log('esatdoModal funcion',!estadoModal)
+  //   // console.log('setesatdoModal',setEstadoModal)
+  //   console.log("editar")
+    
+  // }
 
-function Notas({ id, titulo, contenido }) {
+  // const eliminarNotas = () => {
+  //   // setNumClics(0);
+  //   console.log("eliminar")
+  // }
 
-  const editarNotas = () => {
-    //  setNumClics(numClics + 1);
-    console.log("editar")
-  }
+ 
 
-  const eliminarNotas = () => {
-    // setNumClics(0);
-    console.log("eliminar")
-  }
-
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
 
   return (
 
@@ -37,14 +43,22 @@ function Notas({ id, titulo, contenido }) {
           </p>
         </div>
         <div className="contenedor-botones">
-          <Boton
+          {/* <Boton
             texto='E'
             //  esBotonDeClic={true}
-            manejarClic={editarNotas} />
-          <Boton
+            manejarClic={editarNotas} /> */}
+          {/* <Boton
             texto='X'
             // esBotonDeClic={false}
-            manejarClic={eliminarNotas} />
+            manejarClic={eliminarNotas} /> */}
+          <ModalDeleteNote 
+          idNota={idNota}
+          />
+            <ModalEditNote 
+            idNota={idNota}
+            titulo= {titulo}
+            contenido={contenido}
+             />
         </div>
       </div>
 

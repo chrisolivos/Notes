@@ -1,5 +1,5 @@
 .boton {
-    background-color: rgb(229, 145, 240);
+    background-color: rgb(235, 219, 132);
     border-radius: 25px;
     font-size: larger;
     align-self:flex-end;
@@ -12,5 +12,5 @@
 }
 
 .boton:hover {
-    background-color: #d104fa;
+    background-color: #faf604;
 }

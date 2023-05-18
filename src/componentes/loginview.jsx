@@ -41,7 +41,9 @@ export default function LoginVista() {
     //   const todasLasNotas = await mostrarNotas(user.id);
     //   setNotas([...todasLasNotas])
     // navegar('/mostrarNotas/'+(user.uid))
-    navegar('/dashboard/' + (user.uid))
+    navegar('/dashboard')
+    sessionStorage.setItem('userIdLogin', user.uid)
+
     // navegar('/newnotes/'+(user.uid))
   }
 

@@ -20,13 +20,15 @@ root.render(
     {/* cada componente route indica la ruta */}
     <Route path="/" element={<App />} />
       <Route path="login" element={<LoginView />} />
-      <Route path="dashboard/:uid" element={<DashboardView />} />
+      {/* <Route path="dashboard/:uid" element={<DashboardView />} /> */}
+      <Route path="dashboard" element={<DashboardView />} />
       {/* <Route path="dashboard/profile" element={<EditProfile />} */}
 
     
       <Route path="notes/:uid" element={<Notesview />} />
 
-      <Route path="newnotes/:uid" element={<NuevaNota />} />
+      {/* <Route path="newnotes/:uid" element={<NuevaNota />} /> */}
+      <Route path="newnotes" element={<NuevaNota />} />
       <Route path="notesview" element={<Notas />} />
       {/* <Route path="register" element={<RegistrarUsuario />} /> */}
       {/* ruta dinamica, porque voy a esperar nombre de usuario */}

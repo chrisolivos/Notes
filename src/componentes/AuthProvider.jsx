@@ -17,7 +17,7 @@ export  default function Autenticacion({ hijo, usuarioLogueado, usuarioNoLoguead
                     // TODO: ir a notas
                     // actualizarEstado(2)
                     usuarioLogueado(user)
-                    console.log(user.displayName);
+                  //  console.log(user.displayName);
                 } else {
                     //registrar al usuario
                     await registrarNuevoUsuario({

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
-function Example() {
+function MenuLateral() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -10,21 +10,22 @@ function Example() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Launch
+      <Button variant="danger" onClick={handleShow}>
+      ☰
       </Button>
 
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+          <Offcanvas.Title>Opciones</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you
-          have chosen. Like, text, images, lists, etc.
+        * Buscar
+        * Cambiar color
+        * Papelera
         </Offcanvas.Body>
       </Offcanvas>
     </>
   );
 }
 
-export default Example;
+export default MenuLateral;
