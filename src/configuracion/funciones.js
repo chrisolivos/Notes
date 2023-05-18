@@ -11,7 +11,8 @@ import {
     where,
     setDoc,
     deleteDoc,
-    orderBy
+    orderBy,
+    updateDoc 
   } from "firebase/firestore";
 
   import {signOut} from 'firebase/auth'
@@ -71,15 +72,27 @@ export async function nuevaNota(userUid){
 }
 
 //editar nota
-export async function editarNota(noteId){
+export async function editarNota(noteUpdate){
 
-  // try {
-  //   const coleccionRef=collection(db, "notes")
-  //   const docRef= doc(coleccionRef,user.uid)
-  //   await setDoc(docRef,user)
-  // } catch (error) {
+  try {
+    console.log('update', noteUpdate);
+
+
+  const coleccionRef = doc(db, "notes", noteUpdate.id);
+
+
+  await updateDoc(coleccionRef, {
+    titulo: noteUpdate.titulo,
+    contenido: noteUpdate.contenido,
+    fecha: noteUpdate.fecha
+  })
+
+   // const coleccionRef=collection(db, "notes")
+    // const docRef= doc(coleccionRef,noteUpdate.idNota)
+    // await setDoc(docRef,noteUpdate)
+  } catch (error) {
     
-  // }
+  }
 
 }
 

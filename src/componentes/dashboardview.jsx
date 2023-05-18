@@ -31,17 +31,12 @@ export default function DashboardView() {
   useEffect(() => {
 
     //  const collectionRef = collection(db, "notes")
-    // idUsusario n5d0lwEYBwaixHFB0nnrbV7CulU2
     // console.log('usuario', idUsusario)
     const q = query(collection(db, "notes"), where("userUid", "==", idUsusario), orderBy("fecha", "desc"));
     // const q = query(collectionRef, where("userUid", "==", idUsusario), orderBy("fecha", "desc"));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       setNotas(querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id, date: doc.data().fecha?.toDate().getTime() })))
 
-
-      //   snapshot.docs.forEach(nota=>{
-      //     arrayNotas.push(...nota)
-      //   })
     });
 
     return unsubscribe;
@@ -56,20 +51,7 @@ export default function DashboardView() {
 
   }
 
-  //  const [nota, setNota] = useState({});
-  // console.log('notas',notas)
 
-  // const todasLasNotas = mostrarNotas(idUsusario.uid);
-  //  mostrarNotas(idUsusario.uid).then((data)=>{
-  //   setNotas([...data.data()])
-  //  }
-
-  // )
-
-  //  setNotas([...mostrarNotas(idUsusario.uid)])
-  // console.log('notas view', notas)
-  //}
-  //)
   if (notas.length > 0) {
     return (
       <>
@@ -89,8 +71,7 @@ export default function DashboardView() {
                 idNota={nota.id}
                 titulo={nota.titulo}
                 contenido={nota.contenido}
-              //     onDeleteLink={handleOnDeleteLink}
-              //     onUpdateLink={handleOnUpdateLink}
+
               />
             ))
           }

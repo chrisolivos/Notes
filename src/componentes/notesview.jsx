@@ -6,26 +6,7 @@ import ModalDeleteNote from './modalDeleteNote'
 
 
 function Notas({ idNota, titulo, contenido }) {
- // const [estadoModal, setEstadoModal] = useState(false);
-//console.log('id',id)
-  // const editarNotas = () => {
 
-  //   setEstadoModal(!estadoModal);
-  //    console.log('esatdoModal funcion',!estadoModal)
-  //   // console.log('setesatdoModal',setEstadoModal)
-  //   console.log("editar")
-    
-  // }
-
-  // const eliminarNotas = () => {
-  //   // setNumClics(0);
-  //   console.log("eliminar")
-  // }
-
- 
-
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
 
   return (
 
@@ -43,32 +24,18 @@ function Notas({ idNota, titulo, contenido }) {
           </p>
         </div>
         <div className="contenedor-botones">
-          {/* <Boton
-            texto='E'
-            //  esBotonDeClic={true}
-            manejarClic={editarNotas} /> */}
-          {/* <Boton
-            texto='X'
-            // esBotonDeClic={false}
-            manejarClic={eliminarNotas} /> */}
           <ModalDeleteNote 
           idNota={idNota}
           />
             <ModalEditNote 
+            
             idNota={idNota}
-            titulo= {titulo}
-            contenido={contenido}
+            tituloNota= {titulo}
+            contenidoNota={contenido}
              />
         </div>
       </div>
 
-
-      {/* <div className="contenido-boton-agregar-nota">
-      <BotonAgregarNota
-      texto='+'
-      iduser={uid }
-       />
-      </div> */}
     </>
   );
 }
