@@ -6,18 +6,8 @@
     grid-template-rows: 40px 40px 40px;
     grid-template-columns: 250px 300px;
 }
+/*
 
-.contenedor-boton-login{
-    color: white;
-    padding: 10px;
-    width: 150px;
-    text-align: center;
-    border-radius: 50px;
-    background: linear-gradient(0deg, black, #9E9E9E);
-    text-shadow: 1px 1px 10px yellow;
-    box-shadow: 5px 5px 2px #607D8B;
-  }
-  
 
   .input-text{
     padding: 10px;
@@ -39,6 +29,16 @@
     
   } */
 
+/* .contenedor-boton-login{
+    color: white;
+    padding: 10px;
+    width: 150px;
+    text-align: center;
+    border-radius: 50px;
+    background: linear-gradient(0deg, black, #9E9E9E);
+    text-shadow: 1px 1px 10px yellow;
+    box-shadow: 5px 5px 2px #607D8B;
+  } */
 
 
 .contenedor-form-login {
@@ -47,9 +47,10 @@
   padding: 10px;
   width: 470px;
   height: 450px;
+  margin-top: 180px;
   align-items: center;
   justify-content: center;
-  margin: 0;
+
   background-image: url("../img/post-it.png");
   background-size: contain;
 }
@@ -91,21 +92,83 @@
 }
 
 .boton-google {
-  margin: 20px;
+  /* margin: 20px;
+  width: 215px;
+  height: 40px; */
+  /* background-image:url('../img/BotonSesionGoogle.png'); */
   width: 215px;
   height: 40px;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
 
-  .verde {
+  /* .verde {
     filter: hue-rotate(100deg);
-  }
+  } */
 
 
 
 }
 
 .boton-google-imagen {
-  width: 200px;
-  height: 30px;
+  width: 215px;
+  height: 40px;
+  background-image: url('../img/BotonSesionGoogle.png');
+  background-size: contain;
+  border-radius: 6px;
+  /* background-repeat:no-repeat; */
+}
 
+
+
+.texto-register {
+  font-family: 'Kalam', cursive;
+  font-size: 14px;
+  display: flex;
+  padding-top: 5px;
+  justify-content: center;
+}
+
+/* Pantallas pequeñas (móviles en landscape de menos de 768px) */
+@media (max-width: 767.98px) {
+
+  .contenedor-form-login {
+    background-image: none;
+    width: 370px;
+    height: 450px;
+    margin-top: 40px;
+
+  }
+
+  .form-estilo {
+    padding: 20px;
+    width: 280px;
+    height: 370px;
+    transform: rotate(0deg);
+    background-color: rgb(225, 162, 250);
+    border-radius: 20px 0px 20px 0px;
+    background: linear-gradient(0deg, rgba(54, 77, 104, 0.596), #c3f2fa);
+
+  }
+
+  .text-responsive {
+    color: black;
+  }
+
+  .boton-login {
+    width: 215px;
+  }
+
+  .boton-google {
+    padding-left: 11px;
+  }
+
+  .texto-register {
+    color: white;
+  }
+
+  .link-register {
+    color: red;
+  }
 
 }

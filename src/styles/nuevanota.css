@@ -9,13 +9,13 @@
 .boton-agregar {
   padding: 5px;
   color: #030303;
-  background: yellow;
+  background: rgb(247, 247, 22);
   border: none;
   margin: 1px;
 }
 
 .boton-agregar:hover {
-  background-color: #ffb26a;
+  background-color: #f7b67a;
   color: #fff;
 }
 

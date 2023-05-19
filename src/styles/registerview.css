@@ -1,0 +1,42 @@
+.contenedor-form-register {
+    display: flex;
+    /* grid-template-columns: 350px 350px;*/
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    margin: 0;
+    padding-top: 100px;
+
+  }
+
+  .form-register-estilo{
+    background-color:aliceblue;
+    padding: 20px;
+    box-shadow: 5px 5px 2px #607D8B;
+ 
+  }
+.contenedor-botones-register{
+    padding-top: 10px;
+    display: grid;
+    justify-content: center;
+    grid-template-rows: auto 75px;
+    grid-template-columns: 100%;
+}
+
+.link-contenedor{
+    display: flex;
+    justify-content: center;
+}
+
+
+  @media (max-width: 767.98px) { 
+
+    .form-register-estilo{
+        width: 80%;
+        height: 80%;
+    }
+
+.size-responsive{
+width: 100%;
+}
+}

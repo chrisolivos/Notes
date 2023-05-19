@@ -9,6 +9,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/loginview.css'
+import { Link } from 'react-router-dom'
+
 
 
 
@@ -90,7 +92,7 @@ export default function LoginVista() {
             <Form.Group className="form-control-sm texto-login" controlId="formBasicEmail" >
               <Form.Label>Email address</Form.Label>
               <Form.Control type="email" placeholder="Enter email" />
-              <Form.Text className="text-muted">
+              <Form.Text className="text-muted text-responsive">
                 We'll never share your email with anyone else.
               </Form.Text>
             </Form.Group>
@@ -102,9 +104,23 @@ export default function LoginVista() {
             <Button variant="danger" className='boton-login'>
               Login
             </Button>
-            <Button variant="danger" className="contenedor-boton-login animado boton-google" onClick={loginConGoogle}>
-              <img src={require("../img/BotonSesionGoogle.png")} className='boton-google-imagen' />
+            <Button className="boton-google" onClick={loginConGoogle}>
+              {/* <img src={require("../img/BotonSesionGoogle.png")} className='boton-google-imagen' /> */}
+              <img className='boton-google-imagen' />
+
             </Button>
+            {/* <button className=" boton-google" onClick={loginConGoogle}>
+              <img className='boton-google-imagen' />
+               </button> */}
+            <div>
+              <p className="texto-register" >Don't have an account?
+              
+                <Link to={"./registerview"}>
+                Register
+                </Link>
+              </p>
+            </div>
+
 
           </Form>
         </div>

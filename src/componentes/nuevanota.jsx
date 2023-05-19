@@ -64,7 +64,7 @@ export default function NuevaNota(user) {
                     </Form.Group>
                     <Form.Group className="mb-3"  controlId="exampleForm.ControlTextarea1">
                         <Form.Label>Content</Form.Label>
-                        <Form.Control as="textarea" name="contenido"  rows={4}  placeholder="write a content" onChange={cambiosTextoInput} />
+                        <Form.Control as="textarea"  name="contenido"  rows={4}  placeholder="write a content" onChange={cambiosTextoInput} />
                     </Form.Group>
                     <Button variant="warning" type="submit" className="boton-agregar"  >
                         Guardar

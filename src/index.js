@@ -10,6 +10,7 @@ import Notesview from './componentes/notesview'
 //import RegistrarUsuario from './componentes/registerview';
 import  NuevaNota  from './componentes/nuevanota';
 import Notas from './componentes/notesview';
+import RegisterUser from './componentes/registerview';
 
 
 
@@ -30,6 +31,7 @@ root.render(
       {/* <Route path="newnotes/:uid" element={<NuevaNota />} /> */}
       <Route path="newnotes" element={<NuevaNota />} />
       <Route path="notesview" element={<Notas />} />
+      <Route path="registerview" element={<RegisterUser />} />
       {/* <Route path="register" element={<RegistrarUsuario />} /> */}
       {/* ruta dinamica, porque voy a esperar nombre de usuario */}
       {/* <Route path="u/:username" element={<Profile />} /> */}
