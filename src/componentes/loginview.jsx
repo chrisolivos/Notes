@@ -10,7 +10,7 @@ import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/loginview.css'
 import { Link } from 'react-router-dom'
-
+import {RegisterUser} from "./registerview.jsx";
 
 
 

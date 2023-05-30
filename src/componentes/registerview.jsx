@@ -5,33 +5,79 @@ import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom'
 import '../styles/registerview.css'
+import { registrarNuevoUsuario } from "../configuracion/funciones";
 
+const valoresInicicalesUsuario = {
+    uid:'',
+    displayName: '',
+    email: '',
+    password: '',
+    profilePicture: ''
+};
 
 export default function RegisterUser() {
     const navigate = useNavigate();
+
+
+    const [nuevoUsuario, setNuevoUsuario] = useState(valoresInicicalesUsuario);
+
+
+    //funcion que toma los valores del input 
+    const cambiosTextoInput = e => {
+        const { name, value } = e.target;
+            console.log(e.target.value)
+        //...valores: que mantenga los valores que tiene
+        setNuevoUsuario({ ...nuevoUsuario, [name]: value })
+      //  console.log(nuevoUsuario)
+    }
+
+    //funcion que capture los datos
+    const formOnSubmitNuevoUsuario = e => {
+        e.preventDefault();
+     //   console.log(e.preventDefault)
+
+        crearNuevoUsuario()
+        async function crearNuevoUsuario() {
+            await registrarNuevoUsuario({
+                uid: '',
+                // uid:'eotjnRgEfKhV480ek5QBkRmtz292',
+                displayName: nuevoUsuario.displayName,
+                email: nuevoUsuario.email,
+                password: nuevoUsuario.password,
+                profilePicture: nuevoUsuario.profilePicture
+            });
+        }
+        //  setValores(valoresIniciales)
+        e.target.reset()
+        console.log(nuevoUsuario)
+
+    }
+
+
+
     return (
         <>
             <div className="contenedor-form-register">
 
-                <Form className='form-register-estilo'>
+                <Form className='form-register-estilo' onSubmit={formOnSubmitNuevoUsuario} >
                     <Form.Group   >
                         <Form.Label>Name</Form.Label>
-                        <Form.Control type="text" placeholder="Enter your name and lastname" />
+                        <Form.Control type="text" name="displayName" placeholder="Enter your name and lastname" onChange={cambiosTextoInput} />
                         <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Control type="email" name="email" placeholder="Enter email" onChange={cambiosTextoInput} />
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
+                        <Form.Control type="password" name="password" placeholder="Enter your password" onChange={cambiosTextoInput} />
                         <Form.Label>Picture</Form.Label>
-                        <Form.Control type="file" size="sm" placeholder="search file" />
+                        <Form.Control type="text" name="profilePicture" size="sm" placeholder="Enter url" onChange={cambiosTextoInput} />
 
 
                     </Form.Group>
                     <div className="contenedor-botones-register">
-                        <Button variant="danger" className="size-responsive">
+                        <Button variant="danger" className="size-responsive" type="submit" >
                             Save
                         </Button>
 
-                        <p  className="link-contenedor">
+                        <p className="link-contenedor">
                             <Link to={"/"}>
                                 Login
                             </Link>
