@@ -1,10 +1,12 @@
 import React from "react"; 
+import "bootstrap-icons/font/bootstrap-icons.css";
 import '../styles/boton.css';
+
 
 //const manejarClic()=>()
 
 
-function Boton({ texto, manejarClic}) {
+function Boton({ tipo, manejarClic}) {
   //opcion:  editar, eliminar
     //, esBotonDeClic, manejarClic 
     return (
@@ -12,9 +14,26 @@ function Boton({ texto, manejarClic}) {
       // <button className={esBotonDeClic ? "boton-editar" : "boton-eliminar"} onClick={manejarClic}>
       //   {texto}
       // </button>
-    <button className="boton" onClick={manejarClic}>
-    {texto}
-  </button>
+  //   <button className="boton" onClick={manejarClic}>
+      
+  //   {texto}
+  // </button>
+  <button
+  // className={`btn btn-${tipo === 'editar' ? 'warning' : 'danger'}`}
+  className={`btn btn-outline-danger`}
+  onClick={manejarClic}
+>
+  {tipo === 'editar' ? (
+    <>
+      <span className="bi bi-pencil-square" /> 
+      {/* <i class="bi bi-pencil-square"></i> */}
+      
+    </>
+  ) : (
+    <span className="bi bi-trash" /> 
+
+  )}
+</button>
     )
   
   }

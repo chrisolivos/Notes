@@ -17,13 +17,18 @@ function ModalEditNote(idNota, tituloNota, contenidoNota) {
   console.log('array', arrayNote)
   // console.log(idNota, tituloNota, contenidoNota)
 
+// Función para restaurar saltos de línea
+const restaurarSaltosDeLinea = (texto) => {
+  return texto.replace(/\|\|newline\|\|/g, '\n');
+};
+
   const valoresIniciales = {
     titulo: arrayNote[0].tituloNota,
-    contenido: arrayNote[0].contenidoNota
+    contenido: restaurarSaltosDeLinea(arrayNote[0].contenidoNota)
 
   };
 
-  // console.log('iniciales', valoresIniciales)
+   console.log('iniciales', valoresIniciales)
 
   const [valores, setValores] = useState(valoresIniciales);
 
@@ -36,7 +41,7 @@ function ModalEditNote(idNota, tituloNota, contenidoNota) {
     setValores({ ...valores, [name]: value })
 
   }
-  console.log(valores)
+ // console.log(valores)
   const formOnSubmit = e => {
     // console.log('submit')
     e.preventDefault();
@@ -69,7 +74,8 @@ function ModalEditNote(idNota, tituloNota, contenidoNota) {
     <>
 
       <Boton
-        texto='E'
+        // texto='E'
+        tipo="editar"
         manejarClic={handleShow}>
       </Boton>
 
@@ -86,7 +92,7 @@ function ModalEditNote(idNota, tituloNota, contenidoNota) {
               <Form.Control
                 name="titulo"
                 type="input"
-                defaultValue={arrayNote[0].tituloNota}
+                value={arrayNote[0].tituloNota}
                 autoFocus
                 onChange={cambiosTextoInput}
               />
@@ -97,7 +103,7 @@ function ModalEditNote(idNota, tituloNota, contenidoNota) {
               <Form.Control as="textarea" rows={3}
                 name="contenido"
 
-                defaultValue={arrayNote[0].contenidoNota}
+                value={arrayNote[0].contenidoNota}
                 onChange={cambiosTextoInput}
               />
 

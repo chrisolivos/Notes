@@ -5,10 +5,13 @@ import NuevaNota from './nuevanota';
 import { useParams } from "react-router-dom";
 import '../styles/dashboardview.css'
 import { db } from "../configuracion/firebaseConfig.js"
-import MenuLateral from './menu.jsx';
+// import MenuLateral from './menu.jsx';
+import MenuHamburger from './menu2.jsx';
 import { cerrarSesion } from "../configuracion/funciones";
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom'
+import Container from 'react-bootstrap/Container';
+
 import {
   collection,
   onSnapshot,
@@ -18,6 +21,7 @@ import {
   docs,
   doc
 } from "firebase/firestore";
+
 
 
 
@@ -33,7 +37,7 @@ export default function DashboardView() {
     //  const collectionRef = collection(db, "notes")
     // console.log('usuario', idUsusario)
     const q = query(collection(db, "notes"), where("userUid", "==", idUsusario), orderBy("fecha", "desc"));
-    // const q = query(collectionRef, where("userUid", "==", idUsusario), orderBy("fecha", "desc"));
+    // const q = useEffect(() => { query(collectionRef, where("userUid", "==", idUsusario), orderBy("fecha", "desc"));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       setNotas(querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id, date: doc.data().fecha?.toDate().getTime() })))
 
@@ -55,10 +59,14 @@ export default function DashboardView() {
   if (notas.length > 0) {
     return (
       <>
-        <div className="container-boton-logout" >
-          <MenuLateral />
+        {/* <div className="container-boton-logout" > */}
+          {/* <MenuLateral /> */}
+         
+          <MenuHamburger />
+          {/* <Container fluid>
           <Button variant="danger" onClick={Signoutview}>Logout</Button>
-        </div>
+          </Container> */}
+        {/* </div> */}
 
         <NuevaNota />
         <div className='vista-notas'>
@@ -81,10 +89,16 @@ export default function DashboardView() {
   } else {
     return (
       <>
-        <div className="container-boton-logout" >
-          <MenuLateral />
+        {/* <div className="container-boton-logout" > */}
+          {/* <MenuLateral /> */}
+          
+         
+          <MenuHamburger />
+          {/* <Container fluid>
           <Button variant="danger" onClick={Signoutview}>Logout</Button>
-        </div>
+          </Container> */}
+        
+        {/* </div> */}
         <NuevaNota />
       </>
     )

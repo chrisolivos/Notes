@@ -20,14 +20,22 @@ export default function NuevaNota(user) {
     const idUsusario = sessionStorage.getItem('userIdLogin')
     //console.log(idUsusario)
 
-    //funcion que toma los valores del input 
-    const cambiosTextoInput = e => {
-        const { name, value } = e.target;
-    //    console.log(e.target.value)
-        //...valores: que mantenga los valores que tiene
-        setValores({ ...valores, [name]: value })
+    // //funcion que toma los valores del input 
+    // const cambiosTextoInput = e => {
+    //     const { name, value } = e.target;
+    // //    console.log(e.target.value)
+    //     //...valores: que mantenga los valores que tiene
+    //     setValores({ ...valores, [name]: value })
 
-    }
+    // }
+    const cambiosTextoInput = (e) => {
+        const { name, value } = e.target;
+        // Reemplazar saltos de línea con ||newline||
+        const contenido = value.replace(/\n/g, '||newline||');
+        setValores({ ...valores, [name]: contenido });
+      };
+
+
     //funcion que capture los datos
     const formOnSubmit = e => {
         e.preventDefault();
@@ -66,25 +74,14 @@ export default function NuevaNota(user) {
                         <Form.Label>Content</Form.Label>
                         <Form.Control as="textarea"  name="contenido"  rows={4}  placeholder="write a content" onChange={cambiosTextoInput} />
                     </Form.Group>
-                    <Button variant="warning" type="submit" className="boton-agregar"  >
-                        Guardar
+                    <Button variant="outline-danger" type="submit"   >
+                    <span className="bi bi-clipboard-check" /> 
+                    </Button>
+                    <Button variant="outline-danger" type="reset" >
+                    <span className="bi bi-x-square" /> 
                     </Button>
                 </Form>
-                {/* <div >
-            <button className="contenedor-boton-logout animado" onClick={Signoutview}>Logout</button>
-            </div>
-            <form id="frmNuevaNota" className="form-nueva-nota" onSubmit={formOnSubmit}>
-                <div className="contenedor-nueva-nota">
-                    <label>Ingresa un titulo</label>
-                    <input name="titulo" type="text" placeholder="Escribe el titulo" onChange={cambiosTextoInput}></input>
-                    <label>Ingresa contenido</label>
-                    <textarea name="contenido" className="textarea-nota" rows="3"
-                        placeholder="Escribe tu nota" onChange={cambiosTextoInput}></textarea>
-                    <button className="boton-agregar"  >
-                        Guardar
-                    </button>
-                </div>
-            </form> */}
+ 
             </div>
             </div>
         </>

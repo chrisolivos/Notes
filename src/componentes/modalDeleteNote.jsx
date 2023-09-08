@@ -24,7 +24,8 @@ function ModalDeleteNote(idNota) {
   return (
     <>
       <Boton
-      texto='X'
+      // texto='X'
+      tipo='eliminar'
       manejarClic={handleShow}>
       </Boton>
 
