@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import Boton from './button';
-import {deleteNote} from '../configuracion/funciones'
+import React, { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import Boton from "./button";
+import { deleteNote } from "../configuracion/funciones";
 
 function ModalDeleteNote(idNota) {
   const [show, setShow] = useState(false);
@@ -10,24 +10,18 @@ function ModalDeleteNote(idNota) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  async function DeleteNotes(){
-    console.log('eliminar id', idNota)
-    setShow(false)
-   await deleteNote(idNota)
-    
+  async function DeleteNotes() {
+    console.log("eliminar id", idNota);
+    setShow(false);
+    await deleteNote(idNota);
   }
-
-
-  
-  
 
   return (
     <>
       <Boton
-      // texto='X'
-      tipo='eliminar'
-      manejarClic={handleShow}>
-      </Boton>
+        tipo="eliminar"
+        manejarClic={handleShow}
+      ></Boton>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

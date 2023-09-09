@@ -1,50 +1,41 @@
-import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Offcanvas from 'react-bootstrap/Offcanvas';
-import '../styles/menu.css'
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
+import { cerrarSesion } from "../configuracion/funciones";
 
-function MenuLateral() {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
+function MenuHamburger() {
+  const navegar = useNavigate();
+  async function Signoutview() {
+    await cerrarSesion();
+    navegar("/");
+  }
   return (
-    <>
-      <Button variant="danger" onClick={handleShow}>
-      ☰
-      </Button>
-    <div>
-      <Offcanvas show={show} onHide={handleClose}   backdropClassName="contenedor-body" >
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Opciones</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body>
-          <p>
-          <a href="">
-            <li>Buscar</li> 
-            </a>
-          </p>
-       
-          <p>
-          <a href="">
-            <li>Cambiar color</li> 
-            </a>
-        
-            </p>
-        
-            <p>
-            <a href="">
-            <li>Papelera</li> 
-            </a>
-        
-          </p>
-      
-        </Offcanvas.Body>
-      </Offcanvas>
-      </div>
-    </>
+    <Navbar expand="lg" className="bg-body-tertiary">
+      <Container>
+        <Navbar.Brand href="#home">Notes</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#home">Color</Nav.Link>
+            <Nav.Link href="#link">Trash</Nav.Link>
+            <Form className="d-flex">
+              <Form.Control
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+              />
+              <Button variant="outline-danger">Search</Button>
+            </Form>
+          </Nav>
+        </Navbar.Collapse>
+        <Button variant="danger" onClick={Signoutview}>Logout</Button>
+      </Container>
+    </Navbar>
   );
 }
 
-export default MenuLateral;
+export default MenuHamburger;

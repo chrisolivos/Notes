@@ -1,15 +1,15 @@
 import React from "react";
-import '../styles/notas.css'
-import ModalEditNote from './modalEditNote'
-import ModalDeleteNote from './modalDeleteNote'
-
-
+import "../styles/notas.css";
+import ModalEditNote from "./modalEditNote";
+import ModalDeleteNote from "./modalDeleteNote";
 
 function Notas({ idNota, titulo, contenido }) {
-
+  // Función para restaurar saltos de línea
+  const restaurarSaltosDeLinea = (texto) => {
+    return texto.replace(/\|\|newline\|\|/g, "\n");
+  };
 
   return (
-
     <>
       <div className="contenedor-principal-notas">
         {/* <button onClick={cerrarSesion}>Logout</button> */}
@@ -18,24 +18,20 @@ function Notas({ idNota, titulo, contenido }) {
             {/* Titulo Notas */}
             {titulo}
           </h4>
-          <p className="estilo-contenido-notas">
+          <pre className="estilo-contenido-notas">
             {/* Contenido notas */}
-            {contenido}
-          </p>
+            {restaurarSaltosDeLinea(contenido)}
+          </pre>
         </div>
         <div className="contenedor-botones">
-          <ModalDeleteNote 
-          idNota={idNota}
-          />
-            <ModalEditNote 
-            
+          <ModalDeleteNote idNota={idNota} />
+          <ModalEditNote
             idNota={idNota}
-            tituloNota= {titulo}
-            contenidoNota={contenido}
-             />
+            tituloNota={titulo}
+            contenidoNota={restaurarSaltosDeLinea(contenido)}
+          />
         </div>
       </div>
-
     </>
   );
 }
