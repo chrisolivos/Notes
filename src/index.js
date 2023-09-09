@@ -11,7 +11,7 @@ import Notesview from './componentes/notesview'
 import  NuevaNota  from './componentes/nuevanota';
 import Notas from './componentes/notesview';
 import RegisterUser from './componentes/registerview';
-
+import NotaEditable from './componentes/notaEstiloEditable';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -24,7 +24,7 @@ root.render(
       {/* <Route path="dashboard/:uid" element={<DashboardView />} /> */}
       <Route path="dashboard" element={<DashboardView />} />
       {/* <Route path="dashboard/profile" element={<EditProfile />} */}
-
+      <Route path="chooseColor" element={<NotaEditable />} />
     
       <Route path="notes/:uid" element={<Notesview />} />
 
