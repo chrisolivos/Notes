@@ -57,7 +57,6 @@ export default function DashboardView() {
         <MenuHamburger />
 
         <NuevaNota />
-        
         <div className="vista-notas">
           {notas?.map((nota) => (
             <Notas

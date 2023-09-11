@@ -23,7 +23,7 @@ export default function NotaEditable() {
           <Form.Control
             type="color"
             id="exampleColorInput"
-            defaultValue="#563d7c"
+            defaultValue="#c7adef"
             title="Choose your color"
             onChange={cambiarColor}
             className="color-input"
