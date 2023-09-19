@@ -12,7 +12,8 @@ import  NuevaNota  from './componentes/nuevanota';
 import Notas from './componentes/notesview';
 import RegisterUser from './componentes/registerview';
 import NotaEditable from './componentes/notaEstiloEditable';
-
+import EditProfile from './componentes/editProfile'
+import EditEmailPassword from './componentes/editEmailPassword';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -23,12 +24,12 @@ root.render(
       <Route path="login" element={<LoginView />} />
       {/* <Route path="dashboard/:uid" element={<DashboardView />} /> */}
       <Route path="dashboard" element={<DashboardView />} />
-      {/* <Route path="dashboard/profile" element={<EditProfile />} */}
-      <Route path="chooseColor" element={<NotaEditable />} />
+      <Route path="dashboard/profile" element={<EditProfile />}/>
+      <Route path="dashboard/changeLogin" element={<EditEmailPassword />}/>
+      {/* <Route path="chooseColor" element={<NotaEditable />} /> */}
     
       <Route path="notes/:uid" element={<Notesview />} />
 
-      {/* <Route path="newnotes/:uid" element={<NuevaNota />} /> */}
       <Route path="newnotes" element={<NuevaNota />} />
       <Route path="notesview" element={<Notas />} />
       <Route path="registerview" element={<RegisterUser />} />
