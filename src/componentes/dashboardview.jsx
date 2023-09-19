@@ -13,19 +13,17 @@ import {
   query,
   where,
   orderBy,
-  docs,
-  doc,
 } from "firebase/firestore";
 
 export default function DashboardView() {
   const [notas, setNotas] = useState([]);
-  const [idUser, setIdUser] = useState({});
+//  const [idUser, setIdUser] = useState({});
   const idUsusario = sessionStorage.getItem("userIdLogin");
   // console.log('codusuario', idUsusario)
 
   useEffect(() => {
     //  const collectionRef = collection(db, "notes")
-    // console.log('usuario', idUsusario)
+   //  console.log('usuario', idUsusario)
     const q = query(
       collection(db, "notes"),
       where("userUid", "==", idUsusario),

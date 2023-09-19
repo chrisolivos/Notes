@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { auth } from "../configuracion/firebaseConfig.js";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Autenticacion from "./AuthProvider.jsx";
 import Button from "react-bootstrap/Button";
@@ -14,6 +14,8 @@ export default function LoginVista() {
   const navegar = useNavigate();
   const [currentUser, setCurrentUser] = useState(null);
   const [estado, setEstado] = useState(0);
+  const [userLogin, setUserLogin]=useState('');
+  const [passwordLogin, setPasswordLogin]=useState('');
 
   //logeando con google
   async function loginConGoogle() {
@@ -23,11 +25,16 @@ export default function LoginVista() {
     async function signInWithGoogle(googleProvider) {
       try {
         const res = await signInWithPopup(auth, googleProvider);
-        console.log(res);
+        //   console.log(res);
       } catch (error) {
         console.error(error);
       }
     }
+  }
+
+  //logeando con correo
+  async function loginWithEmail() {
+    const loginEmail= await signInWithEmailAndPassword(auth, userLogin, passwordLogin)
   }
 
   async function funcionUsuarioLogueado(user) {
@@ -84,7 +91,7 @@ export default function LoginVista() {
               controlId="formBasicEmail"
             >
               <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
+              <Form.Control onChange={(e)=>setUserLogin(e.target.value)} type="email" placeholder="Enter email" />
               <Form.Text className="text-muted text-responsive">
                 We'll never share your email with anyone else.
               </Form.Text>
@@ -95,9 +102,9 @@ export default function LoginVista() {
               controlId="formBasicPassword"
             >
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Control onChange={(e)=>setPasswordLogin(e.target.value)} type="password" placeholder="Password" />
             </Form.Group>
-            <Button variant="danger" className="boton-login">
+            <Button variant="danger" className="boton-login" onClick={loginWithEmail}>
               Login
             </Button>
             <Button className="boton-google" onClick={loginConGoogle}>

@@ -10,6 +10,7 @@ function MenuHamburger() {
   const navegar = useNavigate();
   async function Signoutview() {
     await cerrarSesion();
+    sessionStorage.setItem("userIdLogin", '');
     navegar("/");
   }
   return (

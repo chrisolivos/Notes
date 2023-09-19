@@ -14,12 +14,14 @@ import {
   orderBy,
   updateDoc
 } from "firebase/firestore";
-import { signOut } from 'firebase/auth'
+import { signOut, createUserWithEmailAndPassword } from 'firebase/auth'
 
 
 export async function cerrarSesion() {
   await signOut(auth);
 }
+
+
 
 export async function usuarioExiste(uid) {
   //donde vamos a buscar la referencia
@@ -33,17 +35,35 @@ export async function usuarioExiste(uid) {
   return docSnap.exists();
 }
 
-//registrar usuario
+// Función para registrar un nuevo usuario
 export async function registrarNuevoUsuario(user) {
   try {
-    console.log('datos de usuario en funcion', user)
-    //definir coleccion primero
-    const coleccionRef = collection(db, "users")
-    //const docRef= doc(db, "users", user.uid)
-    const docRef = doc(coleccionRef, user.uid)
-    await setDoc(docRef, user)
-  } catch (error) {
+    // Registrar el usuario en Firebase Authentication
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      user.email,
+      user.password
+    );
 
+    // Obtener el UID del usuario registrado
+    const uid = userCredential.user.uid;
+
+    // Crear un documento en la colección "users" con el UID generado automáticamente
+    const coleccionUsers = collection(db, 'users');
+   // const docUsers = doc(coleccionUsers)
+
+    await addDoc(coleccionUsers, {
+      uid: uid,
+      displayName: user.displayName,
+      email: user.email,
+      password: user.password,
+      profilePicture: user.profilePicture
+
+    });
+  //  usuarioExiste(uid)
+   // console.log('Nuevo usuario registrado con UID:', uid);
+  } catch (error) {
+    console.error('Error al registrar el nuevo usuario:', error);
   }
 }
 
