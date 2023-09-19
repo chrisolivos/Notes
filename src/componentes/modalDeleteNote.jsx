@@ -11,7 +11,7 @@ function ModalDeleteNote(idNota) {
   const handleShow = () => setShow(true);
 
   async function DeleteNotes() {
-    console.log("eliminar id", idNota);
+   // console.log("eliminar id", idNota);
     setShow(false);
     await deleteNote(idNota);
   }

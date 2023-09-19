@@ -4,7 +4,7 @@ import { nuevaNota } from "../configuracion/funciones";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "../styles/notasEstiloEditable.css";
-import { Container, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 const valoresIniciales = {
   userUid: "",
@@ -36,7 +36,7 @@ export default function NuevaNota(user) {
     const contenido = value.replace(/\n/g, "||newline||");
     setValores({ ...valores, [name]: contenido });
   };
-  console.log("color", color)
+ // console.log("color", color)
 
   //funcion que capture los datos
   const formOnSubmit = (e) => {
@@ -44,7 +44,7 @@ export default function NuevaNota(user) {
 
     crearNota();
     async function crearNota() {
-      console.log(color, valores.color)
+   //   console.log(color, valores.color)
       await nuevaNota({
         userUid: idUsusario,
         // uid:'eotjnRgEfKhV480ek5QBkRmtz292',
@@ -56,6 +56,7 @@ export default function NuevaNota(user) {
       });
     }
     //  setValores(valoresIniciales)
+    setColor("#c7adef");
     e.target.reset();
     //   console.log(valores)
   };
@@ -69,7 +70,7 @@ export default function NuevaNota(user) {
           backgroundColor: color,
         }}
       >
-        <div class="triangle">
+        <div className="triangle">
           
         </div>
         <Form onSubmit={formOnSubmit}>
@@ -95,12 +96,12 @@ export default function NuevaNota(user) {
           <Row className="justify-content-center align-items-left h-100">
             <Row xs={12} md={6} lg={4}>
               <Col>
-                <Button variant="outline-dark" type="submit">
+                <Button variant="light" type="submit">
                   <span className="bi bi-clipboard-check" />
                 </Button>
               </Col>
               <Col>
-                <Button variant="outline-dark" type="reset">
+                <Button variant="light" type="reset">
                   <span className="bi bi-x-square" />
                 </Button>
               </Col>
@@ -108,7 +109,7 @@ export default function NuevaNota(user) {
                 <Form.Control
                   type="color"
                   id="exampleColorInput"
-                  defaultValue="#563d7c"
+                  defaultValue="#c7adef"
                   title="Choose your color"
                   onChange={cambiarColor}
                   className="color-input"

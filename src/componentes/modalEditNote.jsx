@@ -5,10 +5,10 @@ import Modal from "react-bootstrap/Modal";
 import Boton from "./button";
 import { editarNota } from "../configuracion/funciones";
 
-function ModalEditNote(idNota, tituloNota, contenidoNota) {
+function ModalEditNote(idNota, tituloNota, contenidoNota, colorNota) {
   const [show, setShow] = useState(false);
 
-  const arrayNote = [idNota, tituloNota, contenidoNota];
+  const arrayNote = [idNota, tituloNota, contenidoNota, colorNota];
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -19,6 +19,7 @@ function ModalEditNote(idNota, tituloNota, contenidoNota) {
   const valoresIniciales = {
     titulo: arrayNote[0].tituloNota,
     contenido: arrayNote[0].contenidoNota,
+    color: arrayNote[0].colorNota,
   };
 
   // console.log('iniciales', valoresIniciales)
@@ -34,6 +35,20 @@ function ModalEditNote(idNota, tituloNota, contenidoNota) {
   };
   //console.log(valores);
 
+  // // Función para cambiar el color del cuadro
+  // const cambiarColor = (event) => {
+  //   const nuevoColor = event.target.value;
+  //   setValores({ ...valores, [valores.color]: nuevoColor });
+
+  // //  setColor(nuevoColor);
+  // };
+
+  // Función para cambiar el color del cuadro
+  const cambiarColor = (event) => {
+    const nuevoColor = event.target.value;
+    setValores({ ...valores, color: nuevoColor });
+  };
+
   const formOnSubmit = (e) => {
     // console.log('submit')
     e.preventDefault();
@@ -42,13 +57,14 @@ function ModalEditNote(idNota, tituloNota, contenidoNota) {
 
     editarNotaFuncion();
     async function editarNotaFuncion() {
-      //    console.log(arrayNote[0].idNota, valores.titulo, valores.contenido)
+      // console.log(arrayNote[0].idNota, valores.titulo, valores.color)
 
       await editarNota({
         id: arrayNote[0].idNota,
         // uid:'eotjnRgEfKhV480ek5QBkRmtz292',
         titulo: valores.titulo,
         contenido: valores.contenido,
+        color: valores.color,
         fecha: new Date(),
       });
     }
@@ -92,8 +108,17 @@ function ModalEditNote(idNota, tituloNota, contenidoNota) {
                 defaultValue={arrayNote[0].contenidoNota}
                 onChange={cambiosTextoInput}
               />
+              <Form.Label>Choose color</Form.Label>
+              <Form.Control
+                type="color"
+                name="color"
+                defaultValue={arrayNote[0].colorNota}
+                title="Choose your color"
+                onChange={cambiarColor}
+                className="color-input"
+              />
             </Form.Group>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button variant="success" onClick={handleClose}>
               Cancel
             </Button>
             <Button variant="success" type="submit">

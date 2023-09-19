@@ -79,7 +79,8 @@ export async function editarNota(noteUpdate) {
     await updateDoc(coleccionRef, {
       titulo: noteUpdate.titulo,
       contenido: noteUpdate.contenido,
-      fecha: noteUpdate.fecha
+      fecha: noteUpdate.fecha,
+      color: noteUpdate.color
     })
 
     // const coleccionRef=collection(db, "notes")

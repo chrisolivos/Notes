@@ -65,6 +65,7 @@ export default function DashboardView() {
               idNota={nota.id}
               titulo={nota.titulo}
               contenido={nota.contenido}
+              color={nota.color}
             />
           ))}
         </div>

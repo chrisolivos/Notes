@@ -1,15 +1,16 @@
 .contenedor-principal-notas {
-  width: 240px;
-  height: 240px;
+  /* width: 240px;
+  height: 240px; */
   display: grid;
   /* grid-template-rows:80px 80px; */
-  margin-top: 50px;
-  justify-content: center;
+  /* margin-top: 50px; */
+  /* justify-content: center; */
  margin: 1%;
-  align-items: center;
-  background-image: url("../img/postit-amarillo.png");
+  /* align-items: center; */
+  /* background-image: url("../img/postit-amarillo.png");
   background-size: cover;
-  border-radius: 15px; 
+  border-radius: 15px;  */
+
   /* width: 270px;
   height: 270px;
   margin: 10px 10px 50px;
@@ -21,16 +22,13 @@
   border-radius: 5px; */
 }
 
-.contenedor-notas {
+/* .contenedor-notas {
   align-content: center;
   margin-top: 1%;
   padding: 0;
-}
-
-/* .imagen-testimonio {
-  height: 100%;
-  width: auto;
 } */
+
+
 
 .estilo-contenido-notas {
   text-align: center;
@@ -40,9 +38,9 @@
   text-align: justify;
 }
 
-.contenedor-botones {
-  display: flex;
+ .contenedor-botones {
+  /* display: flex;
 
-  float: right;
-
-}
+  float: right; */
+/* align-content: space-around; */
+} 

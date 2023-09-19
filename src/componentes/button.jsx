@@ -18,7 +18,7 @@ function Boton({ tipo, manejarClic }) {
     // </button>
     <button
       // className={`btn btn-${tipo === 'editar' ? 'warning' : 'danger'}`}
-      className={`btn btn-outline-danger`}
+      className={`btn btn-light`}
       onClick={manejarClic}
     >
       {tipo === "editar" ? (
