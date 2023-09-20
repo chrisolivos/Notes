@@ -7,15 +7,25 @@ import { getFirestore } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_APIKEY,
   authDomain: process.env.REACT_APP_AUTHDOMAIN,
   projectId: process.env.REACT_APP_PROJECTID,
-  storageBucket: process.env.RECT_APP_STORAGEBUCKET,
+  storageBucket:'notes-58d7b.appspot.com', 
+ //storageBucket: process.env.REACT_APP_STORAGEBUCKET,
   messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
-  appId: process.env.REACT_APP_APPID
+  appId: process.env.REACT_APP_APPID,
+
+  
+
 };
+
+// if (process.env.NODE_ENV!='production') {
+//   require('dotenv').config();
+// }
+//console.log(process.env.REACT_APP_STORAGEBUCKET);
+//console.log(firebaseConfig.storageBucket)
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);

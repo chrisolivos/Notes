@@ -14,6 +14,8 @@ import RegisterUser from './componentes/registerview';
 import NotaEditable from './componentes/notaEstiloEditable';
 import EditProfile from './componentes/editProfile'
 import EditEmailPassword from './componentes/editEmailPassword';
+import SubirArchivo from './componentes/upload'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,6 +26,8 @@ root.render(
       <Route path="login" element={<LoginView />} />
       {/* <Route path="dashboard/:uid" element={<DashboardView />} /> */}
       <Route path="dashboard" element={<DashboardView />} />
+        {/* <Route path="dashboard/profile" element={<SubirArchivo />}/> */}
+
       <Route path="dashboard/profile" element={<EditProfile />}/>
       <Route path="dashboard/changeLogin" element={<EditEmailPassword />}/>
       {/* <Route path="chooseColor" element={<NotaEditable />} /> */}

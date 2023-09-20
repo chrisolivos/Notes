@@ -1,4 +1,4 @@
-import { auth, db } from "./firebaseConfig";
+import { app, auth, db,storage } from "./firebaseConfig";
 import {
   getFirestore,
   collection,
@@ -15,7 +15,16 @@ import {
   updateDoc
 } from "firebase/firestore";
 import { signOut, createUserWithEmailAndPassword } from 'firebase/auth'
+import { ref, uploadBytes } from "firebase/storage";
 
+
+
+export function uploadFile(file,userUid) {
+  //console.log(file,userUid);
+  const storageRef = ref(storage, 'notes/'+userUid);
+ // return
+   uploadBytes(storageRef,file).then(res =>{console.log(res)});
+}
 
 export async function cerrarSesion() {
   await signOut(auth);
@@ -117,12 +126,5 @@ export async function editarNota(noteUpdate) {
 export async function deleteNote(idNota) {
   console.log('func delete uid', idNota)
   await deleteDoc(doc(db, "notes", idNota.idNota));
-  // try {
-  //   const coleccionRef=collection(db, "notes")
-  //   const docRef= doc(coleccionRef,user.uid)
-  //   await setDoc(docRef,user)
-  // } catch (error) {
-
-  // }
 
 }
