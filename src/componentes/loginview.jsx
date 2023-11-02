@@ -8,7 +8,7 @@ import Form from "react-bootstrap/Form";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/loginview.css";
 import { Link } from "react-router-dom";
-import { RegisterUser } from "./registerview.jsx";
+
 
 export default function LoginVista() {
   const navegar = useNavigate();
@@ -34,7 +34,7 @@ export default function LoginVista() {
 
   //logeando con correo
   async function loginWithEmail() {
-    const loginEmail= await signInWithEmailAndPassword(auth, userLogin, passwordLogin)
+   await signInWithEmailAndPassword(auth, userLogin, passwordLogin)
   }
 
   async function funcionUsuarioLogueado(user) {

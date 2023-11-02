@@ -19,7 +19,13 @@ function EditProfile() {
   const [validated, setValidated] = useState(false);
   const [file,setFile]=useState(null)
   const idUsusario = sessionStorage.getItem("userIdLogin");
+  const valoresPerfil = {
+    displayName:'' ,
+    displayLastName: '',
+    profilePicture:''
+  };
 
+  const [valores, setValores] = useState(valoresPerfil);
 
   useEffect(() => {
     //  const collectionRef = collection(db, "notes")
